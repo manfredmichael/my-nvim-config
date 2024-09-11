@@ -10,7 +10,14 @@ M.setup = function()
         hide_dotfiles = false,
         hide_gitignored = false
       }
-    }
+    },
+    window = {
+    mappings = {
+      ["s"] = "open_split",       -- Horizontal split
+      ["v"] = "open_vsplit",      -- Vertical split
+      -- Other key mappings
+    },
+  },
   })
 end
 
