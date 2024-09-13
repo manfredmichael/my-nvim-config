@@ -37,6 +37,20 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
+-- Automatically open NeoTree and then Nvdash
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        -- Open NeoTree first (since it's not lazy loaded, it runs automatically)
+        -- vim.cmd("Neotree")
+
+        -- Delay the opening of Nvdash to ensure it appears after NeoTree
+        vim.defer_fn(function()
+            -- Switch to Nvdash after NeoTree
+            vim.cmd("Nvdash")
+        end, 50) -- Adjust delay if needed
+    end
+})
+
 vim.schedule(function()
   require "mappings"
 end)
