@@ -6,12 +6,12 @@
 local M = {}
 
 M.base46 = {
-	theme = "onedark",
+	theme = "doomchad",
   hl_add = {},
   integrations = {},
   changed_themes = {},
   transparency = false,
-  theme_toggle = { "onedark", "vscode_dark"},
+  theme_toggle = { "doomchad", "vscode_dark"},
 
 	hl_override = {
 		Comment = { italic = true },
@@ -69,6 +69,6 @@ M.ui = {
         { "  Mappings", "Spc c h", "NvCheatsheet" },
       },
     },
-  },
+  }
 
 return M
