@@ -1,10 +1,11 @@
 local M = {}
 local harpoon = require('harpoon')
 
-
 M.setup = function()
     harpoon:setup({})
 end
+
+M.harpoon = harpoon
 
 M.get_harpoon_list = function()
   return harpoon:list()
