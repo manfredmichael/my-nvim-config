@@ -29,6 +29,7 @@ require("lazy").setup({
 require("neo-tree")
 require('telescope')
 require('harpoon')
+require('oil')
 
 
 -- load theme
