@@ -87,6 +87,11 @@ return {
       require("configs.oil").setup()
     end,
   },
+  { "nvim-focus/focus.nvim", version = "*" ,
+    config = function()
+      require("configs.focus").setup()
+    end
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {

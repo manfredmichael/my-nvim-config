@@ -11,7 +11,7 @@ M.base46 = {
   integrations = {},
   changed_themes = {},
   transparency = false,
-  theme_toggle = { "doomchad", "doomchad"},
+  theme_toggle = { "wombat", "wombat"},
 
 	hl_override = {
 		Comment = { italic = true },
