@@ -1,12 +1,15 @@
 local M = {}
 
+-- Create a variable to track the current state of focus
+local focus_enabled = false 
+
 M.setup = function()
   require("focus").setup {
     enable = true, -- Enable module
     commands = true, -- Create Focus commands
     autoresize = {
       enable = true, -- Enable or disable auto-resizing of splits
-      width = 0, -- Force width for the focused window
+      width = 110, -- Force width for the focused window
       height = 0, -- Force height for the focused window
       minwidth = 0, -- Force minimum width for the unfocused window
       minheight = 0, -- Force minimum height for the unfocused window
@@ -32,20 +35,19 @@ M.setup = function()
       winhighlight = false, -- Auto highlighting for focussed/unfocussed windows
     },
   }
+  M.toggle()
 end
 
--- Create a variable to track the current state of focus
-local focus_enabled = true
 -- Function to toggle focus
 M.toggle = function()
   focus_enabled = not focus_enabled
 
   if focus_enabled then
-    vim.cmd("FocusDisable")
-    print "focus.nvim enabled"
-  else
-    vim.cmd("FocusEnable")
+    vim.cmd "FocusEnable"
     print "focus.nvim disabled"
+  else
+    vim.cmd "FocusDisable"
+    print "focus.nvim enabled"
   end
 end
 
