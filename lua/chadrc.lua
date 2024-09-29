@@ -11,7 +11,7 @@ M.base46 = {
   integrations = {},
   changed_themes = {},
   transparency = false,
-  theme_toggle = { "doomchad", "vscode_dark"},
+  theme_toggle = { "doomchad", "doomchad"},
 
 	hl_override = {
 		Comment = { italic = true },
