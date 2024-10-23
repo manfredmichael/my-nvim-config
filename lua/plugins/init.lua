@@ -87,10 +87,15 @@ return {
       require("configs.oil").setup()
     end,
   },
-  { "nvim-focus/focus.nvim", version = "*" ,
+  {
+    "nvim-focus/focus.nvim",
+    version = "*",
     config = function()
       require("configs.focus").setup()
-    end
+    end,
+  },
+  {
+    "Asheq/close-buffers.vim",
   },
   {
     "nvim-treesitter/nvim-treesitter",
