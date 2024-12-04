@@ -97,6 +97,14 @@ return {
   {
     "Asheq/close-buffers.vim",
   },
+  {'kevinhwang91/promise-async'},
+  {
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      require("configs.ufo").setup()
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
