@@ -30,6 +30,8 @@ require("neo-tree")
 require('telescope')
 require('harpoon')
 require('oil')
+require('hologram')
+require('pets')
 
 
 -- load theme

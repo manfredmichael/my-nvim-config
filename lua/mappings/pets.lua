@@ -1,19 +1,15 @@
-local config = require('configs.duck')
+local config = require('configs.pets')
+local pets = config.pets
 
-vim.keymap.set('n', '<leader>dd', function() require("duck").hatch() end, {})
-vim.keymap.set('n', '<leader>dc', function() require("duck").hatch("🐈") end, {})
-vim.keymap.set('n', '<leader>dm', function() require("duck").hatch("🗿") end, {})
-vim.keymap.set('n', '<leader>dr', function() require("duck").hatch("🦀") end, {})
-
-vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
-vim.keymap.set('n', '<leader>da', function() require("duck").cook_all() end, {})
---
+vim.api.nvim_set_keymap("n", "<leader>dp", ":PetsNew dog brown<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ph", ":PetsHide<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ps", ":PetsShow<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 -- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 --
 -- vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
 -- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
--- vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+--brew install --cask kitty vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
 -- vim.keymap.set("n", "<C-m>", function() harpoon:list():select(4) end)
 --
 -- -- Toggle previous & next buffers stored within Harpoon list
