@@ -26,7 +26,7 @@ require("lazy").setup({
 }, lazy_config)
 
 
-require("neo-tree")
+-- require("neo-tree")
 require('telescope')
 require('harpoon')
 require('oil')
@@ -47,11 +47,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
         -- Open NeoTree first (since it's not lazy loaded, it runs automatically)
         -- vim.cmd("Neotree")
 
-        -- Delay the opening of Nvdash to ensure it appears after NeoTree
-        vim.defer_fn(function()
-            -- Switch to Nvdash after NeoTree
-            vim.cmd("Nvdash")
-        end, 50) -- Adjust delay if needed
+        -- If without delay 
+        vim.cmd("Nvdash")
+        -- -- Delay the opening of Nvdash to ensure it appears after NeoTree
+        -- vim.defer_fn(function()
+        --     -- Switch to Nvdash after NeoTree
+        --     vim.cmd("Nvdash")
+        -- end, 50) -- Adjust delay if needed
     end
 })
 
