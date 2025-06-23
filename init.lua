@@ -40,6 +40,8 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
+require "lua.chadrc"
+require "lua.mappings"
 
 -- Automatically open NeoTree and then Nvdash
 vim.api.nvim_create_autocmd("VimEnter", {
