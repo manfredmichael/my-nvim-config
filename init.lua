@@ -40,8 +40,8 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
-require "lua.chadrc"
-require "lua.mappings"
+-- require "lua.chadrc"
+-- require "lua.mappings"
 
 -- Automatically open NeoTree and then Nvdash
 vim.api.nvim_create_autocmd("VimEnter", {
@@ -58,6 +58,15 @@ vim.api.nvim_create_autocmd("VimEnter", {
         -- end, 50) -- Adjust delay if needed
     end
 })
+
+
+local map = vim.keymap.set
+
+
+-- Toggle relative number
+map("n", "<leader>n", function()
+  vim.opt.relativenumber = not vim.opt.relativenumber:get()
+end, { desc = "Toggle relative number" })
 
 vim.schedule(function()
   require "mappings"

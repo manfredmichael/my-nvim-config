@@ -1,8 +1,10 @@
 require "nvchad.mappings"
 
 -- add yours here
+print("✅ mappings.lua loaded")
 require("mappings")
 
+print("✅ after mappings.lua loaded")
 local map = vim.keymap.set
 
 

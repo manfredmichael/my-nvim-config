@@ -3,6 +3,7 @@
 -- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
+
 local M = {}
 
 M.base46 = {
@@ -126,5 +127,9 @@ M.ui = {
     },
   },
 }
+
+
+
+print("✅ chadrc.lua loaded")
 
 return M
