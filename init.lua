@@ -45,21 +45,46 @@ require "nvchad.autocmds"
 -- require "lua.mappings"
 
 -- Automatically open NeoTree and then Nvdash
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     callback = function()
+--         -- Open NeoTree first (since it's not lazy loaded, it runs automatically)
+--         -- vim.cmd("Neotree")
+--
+--         -- If without delay 
+--         vim.cmd("Nvdash")
+--         -- -- Delay the opening of Nvdash to ensure it appears after NeoTree
+--         -- vim.defer_fn(function()
+--         --     -- Switch to Nvdash after NeoTree
+--         --     vim.cmd("Nvdash")
+--         -- end, 50) -- Adjust delay if needed
+--     end
+-- })
+-- Safe auto-startup for nvdash (add this to your init.lua)
 vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        -- Open NeoTree first (since it's not lazy loaded, it runs automatically)
-        -- vim.cmd("Neotree")
-
-        -- If without delay 
-        vim.cmd("Nvdash")
-        -- -- Delay the opening of Nvdash to ensure it appears after NeoTree
-        -- vim.defer_fn(function()
-        --     -- Switch to Nvdash after NeoTree
-        --     vim.cmd("Nvdash")
-        -- end, 50) -- Adjust delay if needed
+  callback = function()
+    -- Only show dashboard if no files were opened and buffer is empty
+    if vim.fn.argc() == 0 and vim.api.nvim_buf_get_name(0) == "" and vim.bo.filetype == "" then
+      vim.schedule(function()
+        vim.defer_fn(function()
+          -- Safety check: ensure we're still in the right state
+          if vim.api.nvim_buf_get_name(0) == "" and vim.bo.filetype == "" then
+            local success, _ = pcall(function()
+              -- Use vim.cmd to safely call nvdash
+              vim.cmd("Nvdash")
+            end)
+            
+            if not success then
+              -- Fallback: try again in a moment
+              vim.defer_fn(function()
+                pcall(vim.cmd, "Nvdash")
+              end, 50)
+            end
+          end
+        end, 200) -- Wait 200ms for all plugins to fully load
+      end)
     end
+  end,
 })
-
 
 local map = vim.keymap.set
 
