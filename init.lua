@@ -17,10 +17,10 @@ local lazy_config = require "configs.lazy"
 -- load plugins
 require("lazy").setup({
   {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
+  "NvChad/NvChad",
+  lazy = false,
+  branch = "v2.5",
+  import = "nvchad.plugins",
   },
 
   { import = "plugins" },
@@ -59,7 +59,12 @@ require "nvchad.autocmds"
 --         -- end, 50) -- Adjust delay if needed
 --     end
 -- })
+
+
+
 -- Safe auto-startup for nvdash (add this to your init.lua)
+
+
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     -- Only show dashboard if no files were opened and buffer is empty
@@ -72,7 +77,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
               -- Use vim.cmd to safely call nvdash
               vim.cmd("Nvdash")
             end)
-            
+
             if not success then
               -- Fallback: try again in a moment
               vim.defer_fn(function()
