@@ -216,9 +216,9 @@ return { {
 				snacks_win_opts = {
 					keys = {
 						newline_insert = { "<C-j>", function() vim.api.nvim_feedkeys("\\<enter>", "t", false) end, mode = "t", desc = "Insert newline" },
-						go_up = { "<C-k>", function() vim.api.nvim_feedkeys("\\<up>", "t", false) end, mode = "t", desc = "Go up" },
-						go_left = { "<C-h>", function() vim.api.nvim_feedkeys("\\<left>", "t", false) end, mode = "t", desc = "Navigate left" },
-						go_right = { "<C-l>", function() vim.api.nvim_feedkeys("\\<right>", "t", false) end, mode = "t", desc = "Navigate right" },
+						-- go_up = { "<C-p>", function() vim.api.nvim_feedkeys("\\<up>", "t", false) end, mode = "t", desc = "Go up" },
+						-- go_left = { "<C-b>", function() vim.api.nvim_feedkeys("\\<left>", "t", false) end, mode = "t", desc = "Navigate left" },
+						-- go_right = { "<C-f>", function() vim.api.nvim_feedkeys("\\<right>", "t", false) end, mode = "t", desc = "Navigate right" },
 					}
 				}
 			})
