@@ -1,5 +1,4 @@
-return {
-	{
+return { {
 		"stevearc/conform.nvim",
 		-- event = 'BufWritePre', -- uncomment for format on save
 		opts = require("configs.conform"),
@@ -212,10 +211,23 @@ return {
 	{
 		"coder/claudecode.nvim",
 		dependencies = { "folke/snacks.nvim" },
-		config = true,
+		config = function()
+			require("claudecode").setup({
+				snacks_win_opts = {
+					keys = {
+						newline_insert = { "<C-j>", function() vim.api.nvim_feedkeys("\\<enter>", "t", false) end, mode = "t", desc = "Insert newline" },
+						go_up = { "<C-k>", function() vim.api.nvim_feedkeys("\\<up>", "t", false) end, mode = "t", desc = "Go up" },
+						go_left = { "<C-h>", function() vim.api.nvim_feedkeys("\\<left>", "t", false) end, mode = "t", desc = "Navigate left" },
+						go_right = { "<C-l>", function() vim.api.nvim_feedkeys("\\<right>", "t", false) end, mode = "t", desc = "Navigate right" },
+					}
+				}
+			})
+		end,
 		keys = {
 			{ "<leader>a", nil, desc = "AI/Claude Code" },
-      { "<leader>ac", "<C-\\><C-n>:ClaudeCode<cr>", mode = { "n", "t" }, desc = "Toggle Claude" },
+      { "<C-q>", "<C-\\><C-n>:ClaudeCode<cr>", mode = "t", desc = "Quick hide Claude" },
+      -- { "<leader>ac", "<C-\\><C-n>:ClaudeCode<cr>", mode = { "n", "t" }, desc = "Toggle Claude" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
 			{ "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
 			{ "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
 			{ "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
