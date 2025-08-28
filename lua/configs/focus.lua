@@ -33,12 +33,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 M.setup = function()
+  -- Calculate 70% of current terminal width
+  local focused_width = math.floor(vim.o.columns * 0.8)
+  
   require("focus").setup {
     enable = true, -- Enable module
     commands = true, -- Create Focus commands
     autoresize = {
       enable = true, -- Enable or disable auto-resizing of splits
-      width = 110, -- Force width for the focused window
+      width = focused_width, -- Dynamic width based on terminal size
       height = 0, -- Force height for the focused window
       minwidth = 0, -- Force minimum width for the unfocused window
       minheight = 0, -- Force minimum height for the unfocused window
